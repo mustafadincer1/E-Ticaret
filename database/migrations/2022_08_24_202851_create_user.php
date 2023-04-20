@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('activation_code')->nullable();
             $table->boolean('activation')->default(0);
+            $table->boolean('is_admin')->default(0);
             $table->rememberToken();
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));    

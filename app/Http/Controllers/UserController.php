@@ -79,9 +79,6 @@ class UserController extends Controller
             $request->session()->regenerate();
             Cart::session(Auth::id());
       
-           
-
-
 
             $aktif_sepet_id = Carts::aktif_sepet_id();
 
@@ -113,13 +110,6 @@ class UserController extends Controller
             $CartProducts = CartsProduct::where('cart_id',$aktif_sepet_id)->get();
 
      
-
-    
-          
-
-      
-   
-
             foreach ($CartProducts as $CartProduct) {
                 // ->add($CartProduct->product->id,$CartProduct->product->ürün_adi,$CartProduct->fiyati,$CartProduct->adet);
            

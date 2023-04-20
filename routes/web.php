@@ -7,10 +7,14 @@ use App\Http\Controllers\SepetController;
 use App\Http\Controllers\ÖdemeController;
 use App\Http\Controllers\SiparisController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AnasayfaController;
+use App\Http\Controllers\Admin\Anasayfa_Controller;
 use App\Mail\UserSignIn;
 use App\Models\User;
 use App\Http\Controllers\CartController;
+use App\Http\Middleware\Admin;
+
 
 
 
@@ -24,6 +28,7 @@ use App\Http\Controllers\CartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Route::get('/',[AnasayfaController::class,'index'])->name('anasayfa');
 
@@ -71,4 +76,19 @@ Route::get('/mail',function() {
     $user = \App\Models\User::find(1);
     return new UserSignIn($user);
     // return $user;
+});
+
+
+Route::group(['prefix' =>'admin','namespace' => 'admin'],function(){
+    Route::get('/' ,function(){
+        return "admin";
+    });
+    Route::get('/giriş',[AdminController::class, 'login_page'])->name('admin.giriş');
+
+    Route::post('/giriş', [AdminController::class, 'login'])->name('admin.login');
+    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::middleware([Admin::class])->group(function () {
+        Route::get('/anasayfa', [Anasayfa_Controller::class,'index'])->name('admin.anasayfa');
+        
+    });
 });
