@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Admin\Anasayfa_Controller;
+use App\Http\Controllers\Admin\KullanıcıController;
 use App\Mail\UserSignIn;
 use App\Models\User;
 use App\Http\Controllers\CartController;
@@ -64,6 +65,7 @@ Route::group(['prefix' =>'sepet'],function(){
 
 
 Route::group(['prefix' =>'kullanıcı'],function(){
+    
     Route::get('/giriş',[UserController::class, 'login_page'])->name('giriş');
     Route::post('/giriş',[UserController::class, 'login'])->name('giriş');
     Route::get('/kaydol',[UserController::class, 'sign_in_page'])->name('kaydol');
@@ -88,6 +90,13 @@ Route::group(['prefix' =>'admin','namespace' => 'admin'],function(){
     Route::post('/giriş', [AdminController::class, 'login'])->name('admin.login');
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::middleware([Admin::class])->group(function () {
+        Route::group(['prefix' =>'kullanıcı'],function(){
+            Route::get('/', [KullanıcıController::class,'index'])->name('admin.kullanıcı');
+            Route::get('/edit/{id}', [KullanıcıController::class,'edit'])->name('admin.kullanıcı.edit');
+            Route::post('/update/{id?}', [KullanıcıController::class,'update'])->name('admin.kullanıcı.update');
+            Route::get('/delete/{id}', [KullanıcıController::class,'delete'])->name('admin.kullanıcı.delete');
+
+        });
         Route::get('/anasayfa', [Anasayfa_Controller::class,'index'])->name('admin.anasayfa');
         
     });
