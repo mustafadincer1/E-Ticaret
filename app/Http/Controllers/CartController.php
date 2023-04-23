@@ -17,7 +17,9 @@ class CartController extends Controller
         if(Auth::check()){
             Cart::session(Auth::id());
         }
-        return view('sepet');
+        $ürünler = Cart::Getcontent();
+        //return $ürünler;
+        return view('sepet',compact('ürünler'));
     }
 
     public function ekle(Request $request){

@@ -64,7 +64,11 @@
                 <div class="panel-heading">Günün Fırsatı</div>
                 <div class="panel-body">
                     <a href="{{ route('ürün', $opportunity->slug) }}">
-                        <img src="https://static.birgun.net/resim/haber-detay-resim/2020/12/01/bulgaristan-da-91-bin-lira-olan-araba-turkiye-de-168-bin-lira-811677-5.jpg" class="img-responsive">
+                        @if ($opportunity->detail->ürün_resmi != null)
+                                    <img src="/upload/ürünler/{{$opportunity->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif
                         {{$opportunity ->ürün_adi}}
                     </a>
                 </div>
@@ -82,7 +86,12 @@
                         
                     
                     <div class="col-md-3 product">
-                        <a href="{{route('ürün',$item->slug)}}"><img src="https://static.birgun.net/resim/haber-detay-resim/2020/12/01/bulgaristan-da-91-bin-lira-olan-araba-turkiye-de-168-bin-lira-811677-5.jpg"></a>
+                        <a href="{{route('ürün',$item->slug)}}"> </a>
+                            @if ($item->detail->ürün_resmi != null)
+                            <img src="/upload/ürünler/{{$item->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                            @else
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                            @endif
                         <p><a href="#">{{$item->ürün_adi}} adı</a></p>
                         <p class="price">{{$item->fiyat}} ₺</p>
                     </div>
@@ -103,7 +112,12 @@
                        
                             
                         
-                        <a href="{{route('ürün',$item->slug)}}"><img src="https://static.birgun.net/resim/haber-detay-resim/2020/12/01/bulgaristan-da-91-bin-lira-olan-araba-turkiye-de-168-bin-lira-811677-5.jpg" > </a>
+                        <a href="{{route('ürün',$item->slug)}}"></a>
+                        @if ($item->detail->ürün_resmi != null)
+                        <img src="/upload/ürünler/{{$item->detail->ürün_resmi}}"class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif
                         <p><a href="#">{{$item->ürün_adi}} adı</a></p>
                         <p class="price">{{$item->fiyat}} ₺</p>
                     </div>
@@ -123,7 +137,12 @@
                        
                             
                         
-                        <a href="{{route('ürün',$item->slug)}}"><img src="https://static.birgun.net/resim/haber-detay-resim/2020/12/01/bulgaristan-da-91-bin-lira-olan-araba-turkiye-de-168-bin-lira-811677-5.jpg" > </a>
+                        <a href="{{route('ürün',$item->slug)}}"></a>
+                        @if ($item->detail->ürün_resmi != null)
+                        <img src="/upload/ürünler/{{$item->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif
                         <p><a href="#">{{$item->ürün_adi}} adı</a></p>
                         <p class="price">{{$item->fiyat}} ₺</p>
                     </div>

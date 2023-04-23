@@ -25,7 +25,7 @@
             @php
                 $fiyat = 0;
             @endphp
-            @foreach(Cart::Getcontent() as $urunCartItem)
+            @foreach($ürünler as $urunCartItem)
                 <tr>
                     <td style="width: 120px;">
                         <a href="{{ route('ürün', $urunCartItem->name) }}">

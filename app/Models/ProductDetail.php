@@ -12,7 +12,7 @@ class ProductDetail extends Model
 
     protected $table = "product_detail";
 
-    // protected $guarded = [];
+    protected $guarded = [];
     public $timestamps = false;
 
     public function product(){

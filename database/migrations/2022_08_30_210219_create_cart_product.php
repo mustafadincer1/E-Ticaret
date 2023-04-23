@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cart_id');
             $table->unsignedBigInteger('product_id');
             $table->integer('adet');
-            $table->decimal('fiyati', 5, 2);
+            $table->decimal('fiyati', 10, 2);
             $table->string('durum', 30);
     
             $table->timestamp('olusturma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));

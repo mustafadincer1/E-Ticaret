@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('show_featured');
             $table->boolean('show_bestseller');
             $table->boolean('show_discount');
+            $table->string('ürün_resmi',50)->nullable();
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
 
         });

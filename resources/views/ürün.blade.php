@@ -19,17 +19,33 @@
         <div class="row">
             <div class="col-md-5">
                 
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8Xwx_4wgx_aQphBZeg3GfLL1mZ1ZhSFvDw&usqp=CAU">
+                @if ($products->detail->ürün_resmi != null)
+                    <img src="/upload/ürünler/{{$products->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                @else
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                @endif
                 <hr>
                 <div class="row">
                     <div class="col-xs-3">
-                        <a href="#" class="thumbnail"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8Xwx_4wgx_aQphBZeg3GfLL1mZ1ZhSFvDw&usqp=CAU"></a>
+                        <a href="#" class="thumbnail">@if ($products->detail->ürün_resmi != null)
+                            <img src="/upload/ürünler/{{$products->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif</a>
                     </div>
                     <div class="col-xs-3">
-                        <a href="#" class="thumbnail"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8Xwx_4wgx_aQphBZeg3GfLL1mZ1ZhSFvDw&usqp=CAU"></a>
+                        <a href="#" class="thumbnail">@if ($products->detail->ürün_resmi != null)
+                            <img src="/upload/ürünler/{{$products->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif</a>
                     </div>
                     <div class="col-xs-3">
-                        <a href="#" class="thumbnail"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi8Xwx_4wgx_aQphBZeg3GfLL1mZ1ZhSFvDw&usqp=CAU"></a>
+                        <a href="#" class="thumbnail">@if ($products->detail->ürün_resmi != null)
+                            <img src="/upload/ürünler/{{$products->detail->ürün_resmi}}" class="img-responsive" style="min-width: 100%">
+                        @else
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Empty_set_symbol.svg/640px-Empty_set_symbol.svg.png" style="height:100px; margin-right:20px;" class="thumbnail pull-left">
+                        @endif</a>
                     </div>
                 </div>
             </div>

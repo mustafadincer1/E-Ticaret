@@ -12,6 +12,7 @@ use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Admin\Anasayfa_Controller;
 use App\Http\Controllers\Admin\KullanıcıController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Mail\UserSignIn;
 use App\Models\User;
 use App\Http\Controllers\CartController;
@@ -105,6 +106,15 @@ Route::group(['prefix' =>'admin','namespace' => 'admin'],function(){
             Route::post('/save', [CategoryController::class,'save'])->name('admin.kategori.save');
             Route::get('/add', [CategoryController::class,'add'])->name('admin.kategori.add');
             Route::get('/delete/{id}', [CategoryController::class,'delete'])->name('admin.kategori.delete');
+
+        });
+        Route::group(['prefix' =>'ürün'],function(){
+            Route::get('/', [ProductController::class,'index'])->name('admin.ürün');
+            Route::get('/edit/{id}', [ProductController::class,'edit'])->name('admin.ürün.edit');
+            Route::post('/update/{id?}', [ProductController::class,'update'])->name('admin.ürün.update');
+            Route::post('/save', [ProductController::class,'save'])->name('admin.ürün.save');
+            Route::get('/add', [ProductController::class,'add'])->name('admin.ürün.add');
+            Route::get('/delete/{id}', [ProductController::class,'delete'])->name('admin.ürün.delete');
 
         });
         Route::get('/anasayfa', [Anasayfa_Controller::class,'index'])->name('admin.anasayfa');
