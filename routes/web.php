@@ -11,8 +11,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Admin\Anasayfa_Controller;
 use App\Http\Controllers\Admin\KullanıcıController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+
 use App\Mail\UserSignIn;
 use App\Models\User;
 use App\Http\Controllers\CartController;
@@ -115,6 +117,13 @@ Route::group(['prefix' =>'admin','namespace' => 'admin'],function(){
             Route::post('/save', [ProductController::class,'save'])->name('admin.ürün.save');
             Route::get('/add', [ProductController::class,'add'])->name('admin.ürün.add');
             Route::get('/delete/{id}', [ProductController::class,'delete'])->name('admin.ürün.delete');
+
+        });
+        Route::group(['prefix' =>'sipariş'],function(){
+            Route::get('/', [OrderController::class,'index'])->name('admin.sipariş');
+            Route::get('/edit/{id}', [OrderController::class,'edit'])->name('admin.sipariş.onayla');
+            // Route::post('/update/{id?}', [OrderController::class,'update'])->name('admin.sipariş.update');
+            Route::get('/delete/{id}', [OrderController::class,'delete'])->name('admin.sipariş.delete');
 
         });
         Route::get('/anasayfa', [Anasayfa_Controller::class,'index'])->name('admin.anasayfa');
